@@ -1,0 +1,98 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{\textbf{OST Subject – Student Marklist}}
+\author{Department of Information Technology}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Marklist of 20 Students}
+
+% Table starts here
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|l|c|c|c|c|c|c|c|}
+\hline
+\textbf{Roll No} & \textbf{Name} & \textbf{Att} & \textbf{Iat} & \textbf{Presentation} & \textbf{Lab} & \textbf{Project} & \textbf{Total (50)} & \textbf{\%} \\ \hline
+1  & Aditi Sharma      & 9 & 8 & 10 & 9 & 10 & 46 & 92\\ \hline
+2  & Bharat Patel       & 10 & 7 & 8 & 7 & 9 & 41 & 82\\ \hline
+3  & Chitra Nair        & 8 & 9 & 9 & 8 & 9 & 43 & 86\\ \hline
+4  & Deepak Singh       & 7 & 5 & 6 & 8 & 7 & 33 & 66\\ \hline
+5  & Esha Gupta         & 10 & 9 & 9 & 10 & 10 & 48 & 96\\ \hline
+6  & Farhan Ali         & \cellcolor{red!25}2 & 8 & 7 & 8 & 9 & 34 & 68\\ \hline
+7  & Gauri Menon        & 9 & 8 & 9 & 9 & 9 & 44 & 88\\ \hline
+8  & Harish Rao         & 8 & 6 & 8 & 7 & 8 & 37 & 74\\ \hline
+9  & Ishita Das         & 10 & 10 & 9 & 10 & 10 & 49 & 98\\ \hline
+10 & Jai Kumar          & 7 & 7 & 8 & 8 & 9 & 39 & 78\\ \hline
+11 & Kavita Reddy       & 8 & 6 & 5 & 7 & 8 & 34 & 68\\ \hline
+12 & Lalit Mehta        & 9 & 9 & 10 & 9 & 10 & 47 & 94\\ \hline
+13 & Meera Iyer         & 6 & 7 & 6 & 8 & 7 & 34 & 68\\ \hline
+14 & Neel Patel         & 10 & 9 & 9 & 9 & 9 & 46 & 92\\ \hline
+15 & Omkar Joshi        & 8 & 6 & 7 & 7 & 8 & 36 & 72\\ \hline
+16 & Pooja Sharma       & 7 & \cellcolor{red!25}2 & 8 & 8 & 7 & 32 & 64\\ \hline
+17 & Rahul Verma        & 9 & 8 & 7 & 8 & 8 & 40 & 80\\ \hline
+18 & Sneha Nair         & 10 & 9 & 10 & 10 & 10 & 49 & 98\\ \hline
+19 & Tanvi Rao          & 9 & 8 & 8 & 8 & 8 & 41 & 82\\ \hline
+20 & Uday Kulkarni      & 8 & 7 & 6 & \cellcolor{red!25}2 & 8 & 31 & 62\\ \hline
+\textbf{Average} & & \textbf{8.2} & \textbf{7.5} & \textbf{8.1} & \textbf{7.8} & \textbf{8.6} &  & \\ \hline
+\end{tabular}
+\end{center}
+
+
+\vspace{1em}
+\section*{Total and Average Marks per Category}
+\begin{itemize}
+\item \textbf{Attendance:} Total = 164, Average = 8.2
+\item \textbf{Internal Assessment:} Total = 150, Average = 7.5
+\item \textbf{Presentation:} Total = 162, Average = 8.1
+\item \textbf{Lab Work:} Total = 156, Average = 7.8
+\item \textbf{Project Work:} Total = 172, Average = 8.6
+\end{itemize}
+
+% ---------------- Graph Section ------------------
+\section*{Distribution of Marks}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    symbolic x coords={Attendance,Internal,Presentation,Lab,Project},
+    xtick=data,
+    ylabel={Average Marks},
+    ymin=0, ymax=10,
+    width=12cm,
+    height=6cm,
+    nodes near coords,
+]
+\addplot coordinates {(Attendance,8.2) (Internal,7.5) (Presentation,8.1) (Lab,7.8) (Project,8.6)};
+\end{axis}
+\end{tikzpicture}
+\caption{Average Marks Distribution across Categories}
+\end{figure}
+
+\newpage
+
+\section*{Pie Chart of Overall Performance}
+
+\begin{center}
+\begin{tikzpicture}
+\pie[text=legend, radius=3, color={blue!40, orange!50, green!40, red!40, purple!40}]
+{16.4/Attendance, 15.0/Internal, 16.2/Presentation, 15.6/Lab Work, 17.2/Project Work}
+\end{tikzpicture}
+\captionof{figure}{Overall Contribution of Categories (Total out of 500)}
+\end{center}
+
+\end{document}
